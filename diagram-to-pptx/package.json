@@ -1,0 +1,25 @@
+{
+  "name": "diagram-to-pptx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "흐름도/구성도/개념도 이미지를 편집 가능한 PPTX로 변환하는 로컬 웹앱",
+  "main": "server/index.js",
+  "bin": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build:exe": "pkg . --targets node20-win-x64 --output dist/diagram-to-pptx.exe"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0",
+    "pptxgenjs": "^3.12.0"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^5.16.1"
+  },
+  "pkg": {
+    "scripts": [
+      "server/**/*.js"
+    ]
+  }
+}

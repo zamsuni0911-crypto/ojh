@@ -1,0 +1,206 @@
+{
+  "rowCount": 5,
+  "colCount": 6,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 7746,
+      "text": "당초 제안 내용"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 7463,
+      "text": "제안요청서 해당 내용"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 16236,
+      "text": "협상내용"
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 8029,
+      "text": "협상대상자 검토의견"
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 6897,
+      "text": "가감 조정액"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5146,
+      "text": "발의자"
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 11090,
+      "text": "내용"
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7746,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7463,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5146,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 11090,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 8029,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6897,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7746,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7463,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5146,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 11090,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 8029,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6897,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7746,
+      "text": "합계"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7463,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5146,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 11090,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 8029,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6897,
+      "text": "원"
+    }
+  ]
+}

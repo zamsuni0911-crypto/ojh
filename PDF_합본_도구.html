@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PDF 합본 도구</title>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
+    background: #f4f4f0;
+    margin: 0;
+    padding: 2rem;
+    color: #1a1a1a;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 0.25rem; }
+  .sub { font-size: 13px; color: #666; margin: 0 0 1.5rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .stat-card { background: #ececE6; border-radius: 8px; padding: 1rem; }
+  .stat-label { font-size: 13px; color: #666; margin: 0 0 4px; }
+  .stat-value { font-size: 24px; font-weight: 600; margin: 0; }
+
+  .dropzone {
+    border: 1.5px dashed #bbb; border-radius: 12px; background: #fff;
+    padding: 2.5rem 1rem; text-align: center; cursor: pointer; margin-bottom: 1.5rem;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .dropzone:hover, .dropzone.drag-over { background: #f0f6fd; border-color: #85b7eb; }
+  .dropzone p { margin: 0; font-size: 14px; color: #555; }
+  .dropzone p.hint { font-size: 12px; color: #999; margin-top: 4px; }
+  #file-input { display: none; }
+
+  #list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
+  .row {
+    display: flex; align-items: center; gap: 10px;
+    background: #ffffff; border: 0.5px solid #ddd; border-radius: 6px; padding: 0.65rem 0.9rem;
+    cursor: grab;
+  }
+  .row.dragging { opacity: 0.4; }
+  .row.error { border-color: #e0a0a0; background: #fdf3f3; }
+  .row-handle { color: #bbb; font-size: 14px; flex-shrink: 0; }
+  .row-order { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: #ececE6; color: #555;
+    font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+  .row-info { flex: 1; min-width: 0; }
+  .row-title { font-size: 14px; font-weight: 500; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row-meta { font-size: 12px; color: #666; margin: 2px 0 0; }
+  .row-meta.error-text { color: #b23c3c; }
+  .row-remove {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; border: none; background: transparent;
+    color: #999; font-size: 16px; cursor: pointer; line-height: 1;
+  }
+  .row-remove:hover { background: #f0e0e0; color: #b23c3c; }
+  .empty { color: #999; font-size: 14px; text-align: center; padding: 1.5rem 0; }
+
+  .output-card { background: #ffffff; border: 0.5px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .output-label { font-size: 13px; color: #666; margin: 0 0 6px; }
+  .output-row { display: flex; gap: 8px; }
+  input[type="text"] {
+    flex: 1; height: 36px; padding: 0 10px; border: 0.5px solid #ccc; border-radius: 6px;
+    font-size: 14px; font-family: inherit; background: #fff; color: #1a1a1a;
+  }
+  button {
+    height: 36px; border: 0.5px solid #bbb; border-radius: 6px; background: #fff;
+    font-size: 14px; font-family: inherit; cursor: pointer; color: #1a1a1a; padding: 0 14px;
+  }
+  button:hover:not(:disabled) { background: #f0f0f0; }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  #btn-merge { width: 100%; font-weight: 500; background: #0c447c; color: #fff; border-color: #0c447c; }
+  #btn-merge:hover:not(:disabled) { background: #0a3865; }
+
+  .progress-wrap { display: none; margin-top: 10px; }
+  .progress-bar-bg { height: 8px; background: #ececE6; border-radius: 999px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: #0c447c; transition: width 0.2s; }
+  .progress-text { font-size: 12px; color: #666; margin: 6px 0 0; text-align: center; }
+
+  .status-msg { font-size: 13px; margin-top: 10px; padding: 8px 10px; border-radius: 6px; display: none; }
+  .status-msg.success { display: block; background: #eaf3de; color: #27500a; }
+  .status-msg.error { display: block; background: #fdf3f3; color: #b23c3c; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PDF 합본 도구</h1>
+  <p class="sub">여러 개의 PDF 파일을 원하는 순서로 정렬해서 하나의 PDF로 합쳐줍니다. 파일은 서버로 전송되지 않고 브라우저에서만 처리됩니다.</p>
+
+  <div class="stats">
+    <div class="stat-card"><p class="stat-label">파일 수</p><p class="stat-value" id="stat-files">0</p></div>
+    <div class="stat-card"><p class="stat-label">총 페이지 수</p><p class="stat-value" id="stat-pages">0</p></div>
+  </div>
+
+  <div class="dropzone" id="dropzone">
+    <p>클릭하거나 PDF 파일을 여기로 끌어다 놓으세요</p>
+    <p class="hint">여러 파일을 한 번에 선택할 수 있습니다</p>
+    <input type="file" id="file-input" accept="application/pdf" multiple />
+  </div>
+
+  <div id="list"></div>
+
+  <div class="output-card">
+    <p class="output-label">합본 파일명</p>
+    <div class="output-row">
+      <input type="text" id="in-filename" />
+      <button id="btn-merge" disabled>합본하기</button>
+    </div>
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+      <p class="progress-text" id="progress-text">0 / 0</p>
+    </div>
+    <div class="status-msg" id="status-msg"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var items = [];
+  var nextId = 1;
+
+  var dropzone = document.getElementById("dropzone");
+  var fileInput = document.getElementById("file-input");
+  var list = document.getElementById("list");
+  var btnMerge = document.getElementById("btn-merge");
+  var inFilename = document.getElementById("in-filename");
+  var progressWrap = document.getElementById("progress-wrap");
+  var progressFill = document.getElementById("progress-fill");
+  var progressText = document.getElementById("progress-text");
+  var statusMsg = document.getElementById("status-msg");
+
+  function todayStr(){
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth()+1).padStart(2,"0");
+    var day = String(d.getDate()).padStart(2,"0");
+    return "" + y + m + day;
+  }
+  inFilename.value = "합본_" + todayStr() + ".pdf";
+
+  function formatSize(bytes){
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + " KB";
+    return (bytes/(1024*1024)).toFixed(1) + " MB";
+  }
+
+  function render(){
+    var validCount = items.filter(function(i){ return !i.error; }).length;
+    var totalPages = items.reduce(function(sum,i){ return sum + (i.error ? 0 : (i.pageCount||0)); }, 0);
+    document.getElementById("stat-files").textContent = validCount;
+    document.getElementById("stat-pages").textContent = totalPages;
+    btnMerge.disabled = validCount === 0;
+
+    list.innerHTML = "";
+    if (items.length === 0) {
+      var empty = document.createElement("p");
+      empty.className = "empty";
+      empty.textContent = "추가된 파일이 없습니다.";
+      list.appendChild(empty);
+      return;
+    }
+
+    items.forEach(function(item, idx){
+      var row = document.createElement("div");
+      row.className = "row" + (item.error ? " error" : "");
+      row.draggable = true;
+      row.dataset.id = item.id;
+
+      var metaText;
+      if (item.error) {
+        metaText = item.error;
+      } else if (item.pageCount === null) {
+        metaText = "확인 중...";
+      } else {
+        metaText = item.pageCount + "페이지 · " + formatSize(item.size);
+      }
+
+      row.innerHTML =
+        '<span class="row-handle">☰</span>' +
+        '<span class="row-order">' + (idx+1) + '</span>' +
+        '<div class="row-info">' +
+          '<p class="row-title">' + escapeHtml(item.name) + '</p>' +
+          '<p class="row-meta' + (item.error ? ' error-text' : '') + '">' + metaText + '</p>' +
+        '</div>' +
+        '<button class="row-remove" data-id="' + item.id + '" title="삭제">×</button>';
+
+      list.appendChild(row);
+    });
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  function addFiles(fileList){
+    Array.prototype.forEach.call(fileList, function(file){
+      var item = {
+        id: nextId++,
+        name: file.name,
+        size: file.size,
+        file: file,
+        bytes: null,
+        pageCount: null,
+        error: null
+      };
+      items.push(item);
+      loadFileInfo(item);
+    });
+    render();
+  }
+
+  function loadFileInfo(item){
+    if (item.file.type && item.file.type !== "application/pdf" && !/\.pdf$/i.test(item.name)) {
+      item.error = "PDF 파일이 아닙니다";
+      render();
+      return;
+    }
+    item.file.arrayBuffer().then(function(buf){
+      item.bytes = new Uint8Array(buf);
+      return PDFLib.PDFDocument.load(item.bytes);
+    }).then(function(doc){
+      item.pageCount = doc.getPageCount();
+      render();
+    }).catch(function(){
+      item.error = "손상되었거나 열 수 없는 PDF입니다";
+      render();
+    });
+  }
+
+  dropzone.addEventListener("click", function(){ fileInput.click(); });
+  fileInput.addEventListener("change", function(){
+    addFiles(fileInput.files);
+    fileInput.value = "";
+  });
+  ["dragenter","dragover"].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      dropzone.classList.add("drag-over");
+    });
+  });
+  ["dragleave","drop"].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault();
+      dropzone.classList.remove("drag-over");
+    });
+  });
+  dropzone.addEventListener("drop", function(e){
+    if (e.dataTransfer.files && e.dataTransfer.files.length) {
+      addFiles(e.dataTransfer.files);
+    }
+  });
+
+  list.addEventListener("click", function(e){
+    var btn = e.target.closest(".row-remove");
+    if (!btn) return;
+    var id = Number(btn.getAttribute("data-id"));
+    items = items.filter(function(i){ return i.id !== id; });
+    render();
+  });
+
+  var dragSrcId = null;
+  list.addEventListener("dragstart", function(e){
+    var row = e.target.closest(".row");
+    if (!row) return;
+    dragSrcId = Number(row.dataset.id);
+    row.classList.add("dragging");
+  });
+  list.addEventListener("dragend", function(e){
+    var row = e.target.closest(".row");
+    if (row) row.classList.remove("dragging");
+  });
+  list.addEventListener("dragover", function(e){
+    e.preventDefault();
+    var row = e.target.closest(".row");
+    if (!row || dragSrcId === null) return;
+    var targetId = Number(row.dataset.id);
+    if (targetId === dragSrcId) return;
+    var srcIdx = items.findIndex(function(i){ return i.id === dragSrcId; });
+    var tgtIdx = items.findIndex(function(i){ return i.id === targetId; });
+    if (srcIdx === -1 || tgtIdx === -1) return;
+    var moved = items.splice(srcIdx, 1)[0];
+    items.splice(tgtIdx, 0, moved);
+    render();
+  });
+
+  function setStatus(type, msg){
+    statusMsg.className = "status-msg" + (type ? " " + type : "");
+    statusMsg.textContent = msg;
+  }
+
+  btnMerge.addEventListener("click", function(){
+    var validItems = items.filter(function(i){ return !i.error && i.bytes; });
+    if (validItems.length === 0) return;
+
+    btnMerge.disabled = true;
+    setStatus(null, "");
+    progressWrap.style.display = "block";
+    progressFill.style.width = "0%";
+    progressText.textContent = "0 / " + validItems.length;
+
+    (async function(){
+      try {
+        var mergedPdf = await PDFLib.PDFDocument.create();
+        for (var i = 0; i < validItems.length; i++) {
+          var srcDoc = await PDFLib.PDFDocument.load(validItems[i].bytes);
+          var pages = await mergedPdf.copyPages(srcDoc, srcDoc.getPageIndices());
+          pages.forEach(function(p){ mergedPdf.addPage(p); });
+          var pct = Math.round(((i+1) / validItems.length) * 100);
+          progressFill.style.width = pct + "%";
+          progressText.textContent = (i+1) + " / " + validItems.length;
+        }
+        var mergedBytes = await mergedPdf.save();
+        var blob = new Blob([mergedBytes], { type: "application/pdf" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        var filename = inFilename.value.trim() || ("합본_" + todayStr() + ".pdf");
+        if (!/\.pdf$/i.test(filename)) filename += ".pdf";
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        setStatus("success", "합본이 완료되었습니다. (" + filename + ")");
+      } catch (err) {
+        setStatus("error", "합본 중 오류가 발생했습니다: " + err.message);
+      } finally {
+        btnMerge.disabled = items.filter(function(i){ return !i.error; }).length === 0;
+        progressWrap.style.display = "none";
+      }
+    })();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

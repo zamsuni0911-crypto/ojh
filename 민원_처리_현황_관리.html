@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>민원 처리 현황 관리</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
+    background: #f4f4f0;
+    margin: 0;
+    padding: 2rem;
+    color: #1a1a1a;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 1.25rem; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .stat-card { background: #ececE6; border-radius: 8px; padding: 1rem; }
+  .stat-label { font-size: 13px; color: #666; margin: 0 0 4px; }
+  .stat-value { font-size: 24px; font-weight: 600; margin: 0; }
+  .stat-value.warning { color: #a06400; }
+  .stat-value.success { color: #1a7a3c; }
+
+  .form-card { background: #ffffff; border: 0.5px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+  .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-bottom: 8px; }
+  input, select {
+    height: 36px; padding: 0 10px; border: 0.5px solid #ccc; border-radius: 6px;
+    font-size: 14px; font-family: inherit; background: #fff; color: #1a1a1a;
+  }
+  button {
+    height: 36px; border: 0.5px solid #bbb; border-radius: 6px; background: #fff;
+    font-size: 14px; font-family: inherit; cursor: pointer; color: #1a1a1a;
+  }
+  button:hover { background: #f0f0f0; }
+  #btn-add { width: 100%; font-weight: 500; }
+
+  .filter-bar { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .filter-btn.active { background: #e0eefb; color: #0c447c; border-color: #85b7eb; }
+
+  #list { display: flex; flex-direction: column; gap: 8px; }
+  .row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: #ffffff; border: 0.5px solid #ddd; border-radius: 6px; padding: 0.75rem 1rem;
+  }
+  .row.done { opacity: 0.55; }
+  .row-title { font-size: 14px; font-weight: 500; margin: 0; }
+  .row-meta { font-size: 12px; color: #666; margin: 2px 0 0; }
+  .badge { flex-shrink: 0; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; }
+  .badge.received { background: #ececE6; color: #444; }
+  .badge.progress { background: #faeeda; color: #854f0b; }
+  .badge.done { background: #eaf3de; color: #27500a; }
+  .empty { color: #999; font-size: 14px; text-align: center; padding: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>민원 처리 현황 관리</h1>
+
+  <div class="stats">
+    <div class="stat-card"><p class="stat-label">전체 민원</p><p class="stat-value" id="stat-total">0</p></div>
+    <div class="stat-card"><p class="stat-label">접수</p><p class="stat-value" id="stat-received">0</p></div>
+    <div class="stat-card"><p class="stat-label">처리중</p><p class="stat-value warning" id="stat-progress">0</p></div>
+    <div class="stat-card"><p class="stat-label">완료</p><p class="stat-value success" id="stat-done">0</p></div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-grid">
+      <input type="text" id="in-title" placeholder="민원 제목 (예: 가로등 고장 신고)" />
+      <input type="date" id="in-date" />
+      <input type="text" id="in-assignee" placeholder="담당자" />
+      <select id="in-status">
+        <option value="접수">접수</option>
+        <option value="처리중">처리중</option>
+        <option value="완료">완료</option>
+      </select>
+    </div>
+    <button id="btn-add">+ 민원 등록</button>
+  </div>
+
+  <div class="filter-bar" id="filter-bar">
+    <button data-filter="전체" class="filter-btn">전체</button>
+    <button data-filter="접수" class="filter-btn">접수</button>
+    <button data-filter="처리중" class="filter-btn">처리중</button>
+    <button data-filter="완료" class="filter-btn">완료</button>
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<script>
+(function(){
+  var items = [
+    {title:"가로등 고장 신고", date:"2026-06-20", assignee:"김민수", status:"접수"},
+    {title:"불법 주정차 단속 요청", date:"2026-06-18", assignee:"이서연", status:"처리중"},
+    {title:"공원 쓰레기 무단투기 신고", date:"2026-06-25", assignee:"박지훈", status:"처리중"},
+    {title:"도로 파손 보수 요청", date:"2026-06-10", assignee:"김민수", status:"완료"}
+  ];
+  var currentFilter = "전체";
+
+  var statusClass = { "접수": "received", "처리중": "progress", "완료": "done" };
+
+  function render(){
+    var total = items.length;
+    var received = items.filter(function(i){return i.status==="접수";}).length;
+    var progress = items.filter(function(i){return i.status==="처리중";}).length;
+    var done = items.filter(function(i){return i.status==="완료";}).length;
+    document.getElementById("stat-total").textContent = total;
+    document.getElementById("stat-received").textContent = received;
+    document.getElementById("stat-progress").textContent = progress;
+    document.getElementById("stat-done").textContent = done;
+
+    document.querySelectorAll(".filter-btn").forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-filter") === currentFilter);
+    });
+
+    var filtered = items.filter(function(i){
+      return currentFilter === "전체" || i.status === currentFilter;
+    });
+
+    var sorted = filtered.slice().sort(function(a,b){
+      if (a.status === "완료" && b.status !== "완료") return 1;
+      if (a.status !== "완료" && b.status === "완료") return -1;
+      return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0);
+    });
+
+    var list = document.getElementById("list");
+    list.innerHTML = "";
+    if (sorted.length === 0) {
+      var empty = document.createElement("p");
+      empty.className = "empty";
+      empty.textContent = "해당하는 민원이 없습니다.";
+      list.appendChild(empty);
+      return;
+    }
+    sorted.forEach(function(item){
+      var row = document.createElement("div");
+      row.className = "row" + (item.status==="완료" ? " done" : "");
+      row.innerHTML =
+        '<div>' +
+          '<p class="row-title">' + item.title + '</p>' +
+          '<p class="row-meta">' + item.date + ' · ' + item.assignee + '</p>' +
+        '</div>' +
+        '<span class="badge ' + statusClass[item.status] + '">' + item.status + '</span>';
+      list.appendChild(row);
+    });
+  }
+
+  document.getElementById("btn-add").addEventListener("click", function(){
+    var title = document.getElementById("in-title").value.trim();
+    var date = document.getElementById("in-date").value;
+    var assignee = document.getElementById("in-assignee").value.trim();
+    var status = document.getElementById("in-status").value;
+    if (!title || !date || !assignee) return;
+    items.push({title:title, date:date, assignee:assignee, status:status});
+    document.getElementById("in-title").value = "";
+    document.getElementById("in-date").value = "";
+    document.getElementById("in-assignee").value = "";
+    render();
+  });
+
+  document.getElementById("filter-bar").addEventListener("click", function(e){
+    var btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    currentFilter = btn.getAttribute("data-filter");
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

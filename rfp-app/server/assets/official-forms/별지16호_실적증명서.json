@@ -1,0 +1,366 @@
+{
+  "rowCount": 13,
+  "colCount": 9,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 4,
+      "colSpan": 1,
+      "width": 5400,
+      "text": "신 청 인"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "업체명"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 9957,
+      "text": ""
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 11928,
+      "text": "대 표 자"
+    },
+    {
+      "row": 0,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12198,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "영업소재지"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 9957,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 11928,
+      "text": "전화번호"
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12198,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "사업자번호"
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 9957,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 11928,
+      "text": "법인등록번호"
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12198,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "증명서 용도"
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 9957,
+      "text": "입찰 및 제안서 심사 제출용"
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 11928,
+      "text": "제 출 처"
+    },
+    {
+      "row": 3,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12198,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "rowSpan": 5,
+      "colSpan": 1,
+      "width": 5400,
+      "text": "수행실적내용"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "사 업 명"
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 9957,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 11928,
+      "text": "구 분"
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12198,
+      "text": "소프트웨어개발 ( ) 유지관리ㆍ운영위탁( ) 컨설팅 ( ) 기타 ( )"
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "사업개요"
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 7,
+      "width": 34083,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 6825,
+      "text": "계약번호"
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 5031,
+      "text": "계약일자"
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "rowSpan": 2,
+      "colSpan": 2,
+      "width": 4926,
+      "text": "계약기간"
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 6671,
+      "text": "계약금액 (VAT 포함)"
+    },
+    {
+      "row": 6,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 17455,
+      "text": "수행 또는 납품실적"
+    },
+    {
+      "row": 7,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5257,
+      "text": "완료일자"
+    },
+    {
+      "row": 7,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5391,
+      "text": "지분율(%)"
+    },
+    {
+      "row": 7,
+      "col": 8,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6807,
+      "text": "실적(원)"
+    },
+    {
+      "row": 8,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6825,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5031,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 4926,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6671,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5257,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 5391,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 8,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6807,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 0,
+      "rowSpan": 4,
+      "colSpan": 1,
+      "width": 5400,
+      "text": "증 명 서 발급기관"
+    },
+    {
+      "row": 9,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 8,
+      "width": 40908,
+      "text": "위 사실을 증명함. 년 월 일"
+    },
+    {
+      "row": 10,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 8,
+      "width": 40908,
+      "text": "기관명: (인) (전화번호: )"
+    },
+    {
+      "row": 11,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 8,
+      "width": 40908,
+      "text": "주 소:"
+    },
+    {
+      "row": 12,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 13515,
+      "text": "발급부서:"
+    },
+    {
+      "row": 12,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 5,
+      "width": 27393,
+      "text": "담당자 : (전화번호: )"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "rowCount": 7,
+  "colCount": 2,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 10411,
+      "text": "구 분"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": "내 용"
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "rowSpan": 5,
+      "colSpan": 1,
+      "width": 10411,
+      "text": "보완이 필요한 사항"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 10411,
+      "text": "종합의견"
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 35942,
+      "text": ""
+    }
+  ]
+}

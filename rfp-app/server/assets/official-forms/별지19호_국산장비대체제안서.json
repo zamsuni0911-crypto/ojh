@@ -1,0 +1,302 @@
+{
+  "rowCount": 6,
+  "colCount": 8,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 4700,
+      "text": "순번"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 6964,
+      "text": "구분 (HW, SW)"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 2,
+      "width": 12459,
+      "text": "요청 장비"
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 4,
+      "width": 21697,
+      "text": "국산 도입 제안 장비"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7551,
+      "text": "장비명 (규격)"
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4908,
+      "text": "수량"
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7197,
+      "text": "모델명"
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4137,
+      "text": "수량"
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6030,
+      "text": "제조사명"
+    },
+    {
+      "row": 1,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4333,
+      "text": "비고"
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4700,
+      "text": "1"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6964,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7551,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4908,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7197,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4137,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6030,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4333,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4700,
+      "text": "2"
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 3,
+      "width": 19423,
+      "text": "“ 수요기관 작성란 ”"
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 4,
+      "width": 21697,
+      "text": "“ 제안업체 작성란 ”"
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4700,
+      "text": "3"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6964,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7551,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4908,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7197,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4137,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6030,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4333,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4700,
+      "text": "4"
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6964,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7551,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4908,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7197,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4137,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6030,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 7,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 4333,
+      "text": ""
+    }
+  ]
+}

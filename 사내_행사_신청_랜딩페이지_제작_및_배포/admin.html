@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신청 내역 · 2026 테크 인사이트 데이</title>
+  <meta name="description" content="2026 테크 인사이트 데이 참가 신청 내역을 모아 확인하는 관리 페이지." />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+            <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+            <path d="m2 17 10 5 10-5" />
+            <path d="m2 12 10 5 10-5" />
+          </svg>
+        </span>
+        <span class="brand-name">테크 인사이트 데이</span>
+      </a>
+      <nav class="header-nav" aria-label="주요">
+        <a href="./index.html">랜딩페이지</a>
+        <a class="btn btn-primary btn-sm" href="./index.html#register">참가 신청</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="admin-head">
+        <div>
+          <p class="eyebrow">참가 신청 내역</p>
+          <h1 class="section-title">신청 현황 관리</h1>
+        </div>
+        <div class="admin-stats">
+          <div class="stat">
+            <span class="stat-label">총 신청</span>
+            <span class="stat-value" id="stat-total">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">최근 신청</span>
+            <span class="stat-value stat-value--sm" id="stat-latest">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <label class="search" for="search">
+          <span class="visually-hidden">이름 또는 이메일 검색</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+          </svg>
+          <input type="search" id="search" placeholder="이름 또는 이메일 검색" autocomplete="off" />
+        </label>
+        <div class="admin-actions">
+          <button type="button" class="btn btn-ghost btn-sm" id="export-csv">CSV 내보내기</button>
+          <button type="button" class="btn btn-ghost btn-sm btn-danger" id="clear-all">전체 삭제</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="reg-table">
+          <thead>
+            <tr>
+              <th scope="col" class="col-index">#</th>
+              <th scope="col">이름</th>
+              <th scope="col">이메일</th>
+              <th scope="col">신청 일시</th>
+              <th scope="col" class="col-action"><span class="visually-hidden">삭제</span></th>
+            </tr>
+          </thead>
+          <tbody id="reg-body"></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6" />
+          </svg>
+        </span>
+        <h2 id="empty-title">아직 신청 내역이 없습니다</h2>
+        <p id="empty-desc">참가 신청이 접수되면 이곳에 모여 표시됩니다.</p>
+        <a class="btn btn-primary btn-sm" href="./index.html#register">신청 페이지로 이동</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

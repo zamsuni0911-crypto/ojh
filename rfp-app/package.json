@@ -1,0 +1,21 @@
+{
+  "name": "rfp-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "정보화사업 제안요청서 초안 작성 도우미 (프로토타입)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node --use-system-ca server/index.js",
+    "dev": "node --use-system-ca server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "docx": "^9.0.2",
+    "xml2js": "^0.6.2",
+    "multer": "^2.0.0",
+    "pdf-parse": "^1.1.1",
+    "mammoth": "^1.8.0",
+    "adm-zip": "^0.5.16"
+  }
+}

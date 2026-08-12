@@ -1,0 +1,542 @@
+{
+  "rowCount": 12,
+  "colCount": 6,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 9088,
+      "text": "평가항목*"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 4,
+      "width": 30409,
+      "text": "입찰자"
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "rowSpan": 2,
+      "colSpan": 1,
+      "width": 6541,
+      "text": "비고"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": "A"
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": "B"
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": "C"
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": "..."
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": "XX 항목"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 7,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 7,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 7,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 7,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 7,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 7,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 8,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 8,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": ":"
+    },
+    {
+      "row": 9,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 9,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 10,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": "YY 항목"
+    },
+    {
+      "row": 10,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 10,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 10,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 10,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 10,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 11,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9088,
+      "text": "합계"
+    },
+    {
+      "row": 11,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 11,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 11,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7956,
+      "text": ""
+    },
+    {
+      "row": 11,
+      "col": 4,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    },
+    {
+      "row": 11,
+      "col": 5,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 6541,
+      "text": ""
+    }
+  ]
+}

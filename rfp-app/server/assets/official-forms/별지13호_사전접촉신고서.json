@@ -1,0 +1,134 @@
+{
+  "rowCount": 4,
+  "colCount": 4,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7192,
+      "text": "업 체 명"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9811,
+      "text": "사전접촉자"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9156,
+      "text": "일시"
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 19910,
+      "text": "세부내용"
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7192,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9811,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9156,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 19910,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7192,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9811,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9156,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 19910,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 7192,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9811,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 9156,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 19910,
+      "text": ""
+    }
+  ]
+}

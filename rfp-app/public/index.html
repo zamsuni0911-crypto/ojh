@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>정보화사업 제안요청서 초안 도우미</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="gov-header">
+  <div class="header-inner">
+    <button type="button" id="btn-home-logo" class="logo-area" title="메인화면으로 돌아가기">
+      <span class="logo-mark">RFP</span>
+      <div class="logo-text">
+        <span class="site-name">정보화사업 제안요청서 작성 도우미</span>
+        <span class="site-sub">나라장터 연계 · 초안 자동 생성</span>
+      </div>
+    </button>
+    <div class="header-actions">
+      <span class="badge">프로토타입</span>
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb"><button type="button" id="btn-home-crumb" class="crumb-home">홈</button><span class="sep">›</span>제안요청서 초안 작성</nav>
+
+<div class="intro-banner card">
+  <p><strong>정보화사업이 처음이신가요?</strong> 이 도구는 몇 가지 질문에 답하는 것만으로 제안요청서(RFP) 초안을 자동으로 만들어드립니다. 어려운 용어가 나오면 항목 옆 <span class="q-badge">？</span> 아이콘을 눌러보세요. 모르는 항목은 비워두셔도 괜찮습니다.</p>
+  <button id="btn-help-2" class="btn-help-highlight" type="button">💡 사용법 자세히 보기</button>
+</div>
+
+<div class="layout pre-select" id="layout">
+  <aside class="sidebar" id="sidebar">
+    <h2 class="sidebar-title">[1단계] 사업 유형</h2>
+    <p class="sidebar-help">어떤 종류의 사업인지 잘 모르겠다면, 각 카드의 설명을 읽고 가장 비슷한 것을 골라주세요.</p>
+    <div id="type-list" class="type-list"></div>
+  </aside>
+
+  <main class="main-panel">
+    <div id="empty-hint" class="card empty-hint">
+      <span class="empty-icon" aria-hidden="true">📝</span>
+      <p>왼쪽에서 추진하려는 <strong>사업 유형</strong>을 선택하면 시작됩니다.</p>
+    </div>
+
+    <div id="form-area" class="hidden">
+      <div class="card">
+        <h2 id="selected-type-title">[2단계] 사업 정보 입력</h2>
+        <p class="section-desc">사업명을 입력하면 유사한 기존 사업을 자동으로 찾아드립니다. 모르는 항목은 비워두셔도 됩니다 — 초안에는 지어낸 값 대신 빈 템플릿으로 남습니다.</p>
+        <p class="field-required-note"><span class="required-mark" aria-hidden="true">*</span> 표시가 있는 항목은 꼭 입력해야 합니다. 나머지는 비워두셔도 괜찮습니다.</p>
+
+        <div id="name-field-slot"></div>
+
+        <div id="similar-panel" class="similar-panel hidden">
+          <h3>유사 사업 참고</h3>
+          <div class="ref-tabs">
+            <button type="button" id="tab-auto" class="ref-tab active">나라장터에서 자동 검색</button>
+            <button type="button" id="tab-upload" class="ref-tab">직접 파일 등록</button>
+          </div>
+
+          <div id="ref-auto-panel">
+            <div id="search-loading-box" class="search-loading-box hidden">
+              <span class="spinner-icon"></span>
+              <span>나라장터에서 검색 중입니다...</span>
+            </div>
+            <p class="note" id="result-note"></p>
+            <div id="result-list" class="result-list"></div>
+          </div>
+
+          <div id="ref-upload-panel" class="hidden">
+            <p class="note">참고하고 싶은 유사 사업의 제안요청서 파일을 직접 올려주세요. (.hwpx, .pdf, .docx는 본문까지 인식하고, .hwp는 파일명만 참고로 기록됩니다)</p>
+            <input type="file" id="ref-file-input" accept=".hwpx,.hwp,.pdf,.docx" />
+            <p class="note" id="upload-status"></p>
+            <div id="upload-result" class="result-list"></div>
+          </div>
+        </div>
+
+        <div id="rest-fields"></div>
+
+        <div class="contact-box">
+          <h3>담당자 정보 <span class="optional">(선택 — 제안요청서 표지에 표시됩니다)</span></h3>
+          <div class="contact-grid">
+            <div class="form-row">
+              <label for="contact-dept">담당 소속</label>
+              <input type="text" id="contact-dept" placeholder="예: 정보화담당관실">
+            </div>
+            <div class="form-row">
+              <label for="contact-name">담당자 성명</label>
+              <input type="text" id="contact-name" placeholder="예: 홍길동">
+            </div>
+            <div class="form-row">
+              <label for="contact-phone">전화번호</label>
+              <input type="text" id="contact-phone" placeholder="예: 02-000-0000">
+            </div>
+            <div class="form-row">
+              <label for="contact-email">e-mail</label>
+              <input type="text" id="contact-email" placeholder="예: name@agency.go.kr">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-generate" class="btn-primary btn-large">제안요청서 초안 생성</button>
+    </div>
+
+    <div id="status" class="status hidden" role="status" aria-live="polite"></div>
+  </main>
+</div>
+
+<footer class="gov-footer">
+  <p>본 도구는 내부 업무 참고용 프로토타입입니다. 생성된 초안은 반드시 담당자 검토를 거쳐 확정하세요.</p>
+  <p>문의: [정보화담당부서명 / 담당자 연락처]</p>
+</footer>
+
+<div id="field-tooltip" class="field-tooltip hidden"></div>
+
+<div id="choice-modal" class="modal-overlay hidden">
+  <div class="modal-box choice-box">
+    <div class="modal-header">
+      <h2>유사 사업을 어떻게 참고하시겠어요?</h2>
+    </div>
+    <div class="modal-body">
+      <p class="choice-desc">입력하신 사업명을 바탕으로 참고할 기존 사업을 찾는 방법을 선택하세요.</p>
+      <button type="button" id="choice-auto" class="choice-option recommended">
+        <span class="choice-title">나라장터에서 자동 검색 <span class="choice-badge">추천</span></span>
+        <span class="choice-sub">최근 공고 중 비슷한 사업을 자동으로 찾아 보여드립니다</span>
+      </button>
+      <button type="button" id="choice-upload" class="choice-option">
+        <span class="choice-title">직접 파일 등록</span>
+        <span class="choice-sub">참고하고 싶은 유사 사업 파일을 직접 올립니다</span>
+      </button>
+      <button type="button" id="choice-skip" class="choice-skip">참고 없이 바로 입력할게요</button>
+    </div>
+  </div>
+</div>
+
+<div id="help-modal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>도움말</h2>
+      <button id="btn-help-close" class="btn-close" type="button">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. 이 도구는 무엇인가요?</h3>
+      <p>공공기관이 정보화사업을 발주할 때 필요한 "제안요청서(RFP)" 초안을 자동으로 만들어주는 도구입니다. 정보화사업 실무 경험이 없어도, 몇 가지 질문에 답하기만 하면 표준 형식에 맞는 문서 초안이 생성됩니다.</p>
+
+      <h3>2. 사용 순서</h3>
+      <ol>
+        <li><strong>사업 유형 선택</strong> — 왼쪽에서 추진하려는 사업과 가장 비슷한 유형을 고릅니다.</li>
+        <li><strong>사업명 입력</strong> — 사업명을 적으면 자동으로 비슷한 과거 사업(주로 통일부 발주)을 찾아 보여줍니다. 참고할 만하면 선택하고, 아니면 그냥 넘어가도 됩니다.</li>
+        <li><strong>나머지 정보 입력</strong> — 아는 만큼만 채웁니다. 모르는 항목은 비워두세요.</li>
+        <li><strong>초안 생성</strong> — 버튼을 누르면 워드(.docx) 파일로 초안이 만들어져 다운로드됩니다. 국가법령정보센터에서 받아온 실제 공식 서식(하도급 계획서 등)은 원본과 동일한 표 구조로 초안 안에 그대로 포함됩니다.</li>
+      </ol>
+
+      <h3>3. 모르는 항목은 어떻게 되나요?</h3>
+      <p>절대 그럴듯하게 지어내지 않습니다. 대신 "[◯◯을 입력하세요]" 같은 빈 템플릿으로 남겨두고, 배점표·입찰참가자격·하도급 규정처럼 국가 공통으로 정해진 부분만 표준 내용으로 자동으로 채웁니다. 즉, 이 초안은 100% 완성본이 아니라 <strong>담당자가 이어서 채우고 검토해야 하는 출발점</strong>입니다.</p>
+
+      <h3>4. 공공데이터포털 인증키가 뭔가요?</h3>
+      <p>조달청이 운영하는 나라장터의 공고 정보를 실시간으로 가져오기 위한 열쇠 같은 것입니다. 없어도 예시 데이터로 도구를 체험할 수 있고, 관리자가 기관 공용 키를 설정해뒀다면 신경 쓰지 않아도 자동으로 실제 데이터가 조회됩니다.</p>
+
+      <h3>5. 사업 유형별 설명</h3>
+      <div id="help-type-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

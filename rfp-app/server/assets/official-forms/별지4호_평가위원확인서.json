@@ -1,0 +1,70 @@
+{
+  "rowCount": 4,
+  "colCount": 2,
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 13906,
+      "text": "소 속:"
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 21547,
+      "text": ""
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 13906,
+      "text": "직 위:"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 21547,
+      "text": ""
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 13906,
+      "text": "성 명:"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 21547,
+      "text": ""
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 13906,
+      "text": "평가수당 등 계좌번호:"
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "rowSpan": 1,
+      "colSpan": 1,
+      "width": 21547,
+      "text": ""
+    }
+  ]
+}
