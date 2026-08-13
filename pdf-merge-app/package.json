@@ -1,0 +1,36 @@
+{
+  "name": "pdf-merge-tool",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "kr.go.unikorea.pdfmerge",
+    "productName": "PDF합본도구",
+    "asar": true,
+    "files": [
+      "main.js",
+      "PDF_합본_도구.html",
+      "pdf-lib.min.js",
+      "pdf.min.js",
+      "pdf.worker.min.js"
+    ],
+    "win": {
+      "target": "portable",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "PDF합본도구.exe"
+    }
+  },
+  "allowScripts": {
+    "electron@32.3.3": true
+  }
+}
