@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-single/
+
+# 배포용 대용량 생성물 (npm run build + tools/inline-single.mjs 로 재생성)
+DWG_뷰어_단일파일.html
+배포/DWG_뷰어_단일파일.html
+배포/*.dwg
+배포/*.egg

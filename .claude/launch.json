@@ -14,6 +14,20 @@
       "runtimeArgs": ["start"],
       "cwd": "diagram-to-pptx",
       "port": 4210
+    },
+    {
+      "name": "hwpx-spell-checker",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server", "-p", "8932", "-c-1"],
+      "cwd": "hwpx-spell-checker",
+      "port": 8932
+    },
+    {
+      "name": "dwg-viewer-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5183", "--strictPort"],
+      "cwd": "dwg-viewer-app",
+      "port": 5183
     }
   ]
 }
