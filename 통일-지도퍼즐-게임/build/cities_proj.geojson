@@ -1,0 +1,16 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-163127,120787]},"properties":{"name":"평양","region":"n","src":"통일부 북한정보포털","official":"평양직할시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-285870,237391]},"properties":{"name":"신의주","region":"n","src":"통일부 북한정보포털","official":"신의주시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-103442,329759]},"properties":{"name":"강계","region":"n","src":"통일부 북한정보포털","official":"강계시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[36397,371859]},"properties":{"name":"혜산","region":"n","src":"통일부 북한정보포털","official":"혜산시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[140597,430643]},"properties":{"name":"청진","region":"n","src":"통일부 북한정보포털","official":"청진시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-18213,225371]},"properties":{"name":"함흥","region":"n","src":"통일부 북한정보포털","official":"함흥시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-38939,125954]},"properties":{"name":"원산","region":"n","src":"통일부 북한정보포털","official":"원산시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-104520,505]},"properties":{"name":"개성","region":"n","src":"통일부 북한정보포털","official":"개성특별시"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-72593,-47834]},"properties":{"name":"서울","region":"s"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-96845,-59792]},"properties":{"name":"인천","region":"s"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-37237,-182854]},"properties":{"name":"대전","region":"s"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[72309,-235767]},"properties":{"name":"대구","region":"s"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-86430,-314616]},"properties":{"name":"광주","region":"s"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[116094,-312066]},"properties":{"name":"부산","region":"s"}}
+]}
