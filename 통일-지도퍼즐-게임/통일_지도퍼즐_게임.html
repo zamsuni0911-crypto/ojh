@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>한반도를 완성해요 · 북한 지도 퍼즐</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
@@ -219,8 +220,10 @@
   .qbtn.ok{background:#e7f7ef;border-color:var(--good);color:var(--good)}
   .qbtn.no{background:#fceceb;border-color:var(--bad);color:var(--bad)}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+  integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+  integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <div class="wrap">
@@ -479,9 +482,10 @@ function renderQuiz(){
   const p = quizList[quizIdx];
   $("qProg").textContent = (quizIdx + 1) + " / " + quizList.length;
   const b = p.bbox, pad = Math.max(b[2], b[3]) * 0.12 + 4;
-  $("qShape").innerHTML =
-    '<svg viewBox="' + (b[0]-pad) + ' ' + (b[1]-pad) + ' ' + (b[2]+pad*2) + ' ' + (b[3]+pad*2) + '">' +
-    '<path d="' + p.d + '" fill-rule="evenodd" fill="#2f6fb3" stroke="#fff" stroke-width="1.5"/></svg>';
+  const qbox = $("qShape"); qbox.textContent = "";
+  const qsvg = svg("svg", { viewBox: (b[0]-pad) + " " + (b[1]-pad) + " " + (b[2]+pad*2) + " " + (b[3]+pad*2) });
+  qsvg.appendChild(svg("path", { d: p.d, "fill-rule":"evenodd", fill:"#2f6fb3", stroke:"#fff", "stroke-width":1.5 }));
+  qbox.appendChild(qsvg);
   const others = activeProv().filter(x => x.id !== p.id);
   for(let i = others.length - 1; i > 0; i--){ const j = (Math.random() * (i + 1)) | 0; [others[i], others[j]] = [others[j], others[i]]; }
   const choices = [p, others[0], others[1]];
@@ -621,6 +625,10 @@ function pieceLabel(p){ return p.short || p.name; }
 /* =========================================================
    유틸
    ========================================================= */
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
 function svg(tag, attrs){
   const e = document.createElementNS(SVGNS, tag);
   for(const k in attrs) e.setAttribute(k, attrs[k]);
@@ -760,7 +768,7 @@ function buildTray(){
       `<svg viewBox="${b[0]-pad} ${b[1]-pad} ${b[2]+pad*2} ${b[3]+pad*2}">
          <path d="${p.d}" fill-rule="evenodd" fill="${p.color}" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
        </svg>` +
-      (grade==="elem" ? `<span>${pieceLabel(p)}</span>` : `<span style="color:#9db0c3">?</span>`);
+      (grade==="elem" ? `<span>${esc(pieceLabel(p))}</span>` : `<span style="color:#9db0c3">?</span>`);
     piece.addEventListener("pointerdown", onPieceDown);
     grid.appendChild(piece);
   });
@@ -1268,16 +1276,16 @@ function buildDex(){
     const card = document.createElement("div");
     card.className = "card";
     const nk = unlocked && p.nknote
-      ? `<p style="margin-top:4px;font-size:11.5px;color:#8698ab">📍 통일부 북한정보포털 · ${p.official || p.name} — ${p.nknote}</p>` : "";
+      ? `<p style="margin-top:4px;font-size:11.5px;color:#8698ab">📍 통일부 북한정보포털 · ${esc(p.official || p.name)} — ${esc(p.nknote)}</p>` : "";
     card.innerHTML = unlocked
-      ? `<b><span class="sw" style="background:${p.color}"></span>${p.name}</b><p>${p.blurb}</p>${nk}`
+      ? `<b><span class="sw" style="background:${esc(p.color)}"></span>${esc(p.name)}</b><p>${esc(p.blurb)}</p>${nk}`
       : `<b class="muted-emoji">🔒 ???</b><p>아직 맞추지 않은 지역이에요.</p>`;
     box.appendChild(card);
   });
   (activeCities.length ? activeCities : CITIES.filter(c=>c.region==="n")).forEach(c=>{
     const card = document.createElement("div");
     card.className = "card";
-    card.innerHTML = `<b>📍 ${c.name}</b><p>${c.note}${c.src ? ` <span style="color:#8698ab">(${c.src} · ${c.official})</span>` : ""}</p>`;
+    card.innerHTML = `<b>📍 ${esc(c.name)}</b><p>${esc(c.note)}${c.src ? ` <span style="color:#8698ab">(${esc(c.src)} · ${esc(c.official)})</span>` : ""}</p>`;
     box.appendChild(card);
   });
 }

@@ -47,7 +47,9 @@ function pickItem(items, w){
 function overview(it){
   const a = it.attrbs || [];
   const g = k => (a.find(x => x.attrb_nm === k) || {}).attrb_val || "";
-  return (g("개요") || g("지리적위치") || "").replace(/[⁽⁾¹²³⁴]/g, "").trim().slice(0, 140);
+  return (g("개요") || g("지리적위치") || "")
+    .replace(/<[^>]*>/g, "").replace(/[<>&]/g, "")   // HTML/메타문자 제거 (외부 API 안전화)
+    .replace(/[⁽⁾¹²³⁴]/g, "").replace(/\s+/g, " ").trim().slice(0, 140);
 }
 
 (async () => {
@@ -60,7 +62,7 @@ function overview(it){
       if(!it){ console.log("  ✗", w.key, "(no match)"); continue; }
       const [lon, lat] = proj4("EPSG:5186", "WGS84", [it.x_crdnt, it.y_crdnt]);
       out[w.key] = {
-        official: it.data_ttl,
+        official: String(it.data_ttl || "").replace(/[<>&"]/g, ""),
         lon: +lon.toFixed(5), lat: +lat.toFixed(5),
         category: it.ctgry_nm || "",
         addr: (it.addr || "").trim(),

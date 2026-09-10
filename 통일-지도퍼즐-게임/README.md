@@ -65,7 +65,7 @@
 
 ```bash
 cd build
-npm install proj4  # nkinfo.js 좌표 변환용
+npm install proj4@2.12.1  # nkinfo.js 좌표 변환용
 node fetch.js      # Natural Earth 10m geojson 내려받기 (~40MB, .gitignore)
 bash make.sh       # nkinfo.js(통일부 지명 수집) → 필터→병합→투영→단순화→regions.json
 ```
